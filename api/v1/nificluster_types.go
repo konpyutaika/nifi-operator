@@ -230,6 +230,14 @@ type ReadOnlyConfig struct {
 	AuthorizerConfig AuthorizerConfig `json:"authorizerConfig,omitempty"`
 	// BootstrapNotificationServices configuration that will be applied to the node.
 	BootstrapNotificationServicesReplaceConfig BootstrapNotificationServicesConfig `json:"bootstrapNotificationServicesConfig,omitempty"`
+	// BootstrapGCPProperties configuration that will be applied to the node.
+	BootstrapGCPProperties BootstrapGCPProperties `json:"bootstrapGCPProperties,omitempty"`
+	// BootstrapAWSProperties configuration that will be applied to the node.
+	BootstrapAWSProperties BootstrapAWSProperties `json:"bootstrapAWSProperties,omitempty"`
+	// BootstrapAzureProperties configuration that will be applied to the node.
+	BootstrapAzureProperties BootstrapAzureProperties `json:"bootstrapAzureProperties,omitempty"`
+	// BootstrapHashicorpVaultProperties configuration that will be applied to the node.
+	BootstrapHashicorpVaultProperties BootstrapHashicorpVaultProperties `json:"bootstrapHashicorpVaultProperties,omitempty"`
 }
 
 // Optional configuration for the default authorizers.xml template.
@@ -303,6 +311,58 @@ type BootstrapNotificationServicesConfig struct {
 	ReplaceConfigMap *ConfigmapReference `json:"replaceConfigMap,omitempty"`
 	// bootstrap_notifications_services.xml configuration that will replace the one produced based on template and overrideConfigMap
 	ReplaceSecretConfig *SecretConfigReference `json:"replaceSecretConfig,omitempty"`
+}
+
+// BootstrapGCPProperties configuration that will be applied to the node.
+type BootstrapGCPProperties struct {
+	// Additionnal bootstrap-gcp.conf configuration that will override the one produced based on template and
+	// configuration
+	OverrideConfigMap *ConfigmapReference `json:"overrideConfigMap,omitempty"`
+	// Additionnal bootstrap-gcp.conf configuration that will override the one produced based
+	// on template and configurations.
+	OverrideConfigs string `json:"overrideConfigs,omitempty"`
+	// Additionnal bootstrap-gcp.conf configuration that will override the one produced based
+	// on template, configurations, overrideConfigMap and overrideConfigs.
+	OverrideSecretConfig *SecretConfigReference `json:"overrideSecretConfig,omitempty"`
+}
+
+// BootstrapAWSProperties configuration that will be applied to the node.
+type BootstrapAWSProperties struct {
+	// Additionnal bootstrap-aws.conf configuration that will override the one produced based on template and
+	// configuration
+	OverrideConfigMap *ConfigmapReference `json:"overrideConfigMap,omitempty"`
+	// Additionnal bootstrap-aws.conf configuration that will override the one produced based
+	// on template and configurations.
+	OverrideConfigs string `json:"overrideConfigs,omitempty"`
+	// Additionnal bootstrap-aws.conf configuration that will override the one produced based
+	// on template, configurations, overrideConfigMap and overrideConfigs.
+	OverrideSecretConfig *SecretConfigReference `json:"overrideSecretConfig,omitempty"`
+}
+
+// BootstrapAzureProperties configuration that will be applied to the node.
+type BootstrapAzureProperties struct {
+	// Additionnal bootstrap-azure.conf configuration that will override the one produced based on template and
+	// configuration
+	OverrideConfigMap *ConfigmapReference `json:"overrideConfigMap,omitempty"`
+	// Additionnal bootstrap-azure.conf configuration that will override the one produced based
+	// on template and configurations.
+	OverrideConfigs string `json:"overrideConfigs,omitempty"`
+	// Additionnal bootstrap-azure.conf configuration that will override the one produced based
+	// on template, configurations, overrideConfigMap and overrideConfigs.
+	OverrideSecretConfig *SecretConfigReference `json:"overrideSecretConfig,omitempty"`
+}
+
+// BootstrapHashicorpVaultProperties configuration that will be applied to the node.
+type BootstrapHashicorpVaultProperties struct {
+	// Additionnal bootstrap-hashicorp-vault.conf configuration that will override the one produced based on template and
+	// configuration
+	OverrideConfigMap *ConfigmapReference `json:"overrideConfigMap,omitempty"`
+	// Additionnal bootstrap-hashicorp-vault.conf configuration that will override the one produced based
+	// on template and configurations.
+	OverrideConfigs string `json:"overrideConfigs,omitempty"`
+	// Additionnal bootstrap-hashicorp-vault.conf configuration that will override the one produced based
+	// on template, configurations, overrideConfigMap and overrideConfigs.
+	OverrideSecretConfig *SecretConfigReference `json:"overrideSecretConfig,omitempty"`
 }
 
 // NodeConfig defines the node configuration.
